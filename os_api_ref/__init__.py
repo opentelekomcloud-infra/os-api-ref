@@ -510,7 +510,7 @@ def rest_method_html(self, node):
     <button
        class="btn btn-info btn-sm btn-detail"
        data-target="#%(target)s-detail"
-       data-toggle="collapse"
+       data-toggle=""
        id="%(target)s-detail-btn"
        >detail</button>
     </div>

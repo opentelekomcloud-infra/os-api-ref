@@ -4,6 +4,8 @@
 Example Image API
 =================
 
+.. rest_expand_all::
+
 **Introductory Concepts**
 
 When you create a server, you can specify a password through the
@@ -12,6 +14,7 @@ requirements set by your OpenStack Compute provider. The server might
 enter an ``ERROR`` state if the complexity requirements are not met. In
 this case, a client might issue a change password action to reset the
 server password.
+
 
 List the Images
 ===============
