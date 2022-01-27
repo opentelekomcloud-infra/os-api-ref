@@ -24,14 +24,14 @@ sys.path.insert(0, os.path.abspath('../..'))
 extensions = [
     'sphinx.ext.autodoc',
     'otcdocstheme',
-    'os_api_ref'
+    'otc_api_ref'
 ]
 
 # openstackdocstheme options
-openstackdocs_repo_name = 'openstack/os-api-ref'
+openstackdocs_repo_name = 'opentelekomcloud-infra/otc-api-ref'
 openstackdocs_auto_name = False
-openstackdocs_bug_project = 'openstack-doc-tools'
-openstackdocs_bug_tag = 'os-api-ref'
+openstackdocs_bug_project = 'otc-doc-tools'
+openstackdocs_bug_tag = 'otc-api-ref'
 
 # autodoc generation is a bit aggressive and a nuisance when doing heavy
 # text edit cycles.
@@ -44,7 +44,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'os-api-ref'
+project = u'otc-api-ref'
 copyright = u'2018, The contributors'
 
 # If true, '()' will be appended to :func: etc. cross-reference text.
@@ -77,5 +77,5 @@ latex_documents = [
     ('index',
      '%s.tex' % project,
      u'%s Documentation' % project,
-     u'OpenStack Foundation', 'manual'),
+     u'Open Telekom Cloud', 'manual'),
 ]
