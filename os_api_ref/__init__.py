@@ -26,6 +26,7 @@ import yaml
 
 from os_api_ref.http_codes import http_code
 from os_api_ref.http_codes import http_code_html
+from os_api_ref.http_codes import http_code_latex
 from os_api_ref.http_codes import HTTPResponseCodeDirective
 
 __version__ = pbr.version.VersionInfo(
@@ -372,7 +373,7 @@ class RestParametersDirective(Table):
         # TODO(sdague): it would be good to dynamically set column
         # widths (or basically make the colwidth thing go away
         # entirely)
-        self.options['widths'] = [20, 10, 10, 60]
+        self.options['widths'] = [30, 10, 10, 60]
         self.col_widths = self.get_column_widths(self.max_cols)
         if isinstance(self.col_widths, tuple):
             # In docutils 0.13.1, get_column_widths returns a (widths,
@@ -479,6 +480,9 @@ class RestParametersDirective(Table):
         tgroup += tbody
 
         rows, groups = self.collect_rows()
+        # This is important for latex to set widths
+        # sphinx/writers/latex.py otherwise set tabulary
+        table['classes'] = ['colwidths-given', 'longtable']
         tbody.extend(rows)
         table.extend(groups)
 
@@ -510,7 +514,7 @@ def rest_method_html(self, node):
     <button
        class="btn btn-info btn-sm btn-detail"
        data-target="#%(target)s-detail"
-       data-toggle=""
+       data-toggle="collapse"
        id="%(target)s-detail-btn"
        >detail</button>
     </div>
@@ -523,6 +527,22 @@ def rest_method_html(self, node):
     node['url'] = node['url'].replace(
         '}',
         '}</span>')
+
+    self.body.append(tmpl % node)
+    raise nodes.SkipNode
+
+def rest_method_latex(self, node):
+    tmpl = """
+\\section{%(desc)s}
+
+\\begin{sphinxadmonition}{note}{Method:}
+\\sphinxAtStartPar
+%(method)s %(url)s
+\\end{sphinxadmonition}
+"""
+    node['url'] = node['url'].replace('{', '\\{')
+    node['url'] = node['url'].replace('}', '\\}')
+    node['url'] = node['url'].replace('_', '\\_')
 
     self.body.append(tmpl % node)
     raise nodes.SkipNode
@@ -550,6 +570,10 @@ def rest_expand_all_html(self, node):
         node['selector'], node['extra_js'] = create_mv_selector(node)
 
     self.body.append(tmpl % node)
+    raise nodes.SkipNode
+
+
+def rest_expand_all_latex(self, node):
     raise nodes.SkipNode
 
 
@@ -668,9 +692,18 @@ def setup(app):
     # TODO(sdague): if someone wants to support latex/pdf, or man page
     # generation using these stanzas, here is where you'd need to
     # specify content specific renderers.
-    app.add_node(rest_method, html=(rest_method_html, None))
-    app.add_node(rest_expand_all, html=(rest_expand_all_html, None))
-    app.add_node(http_code, html=(http_code_html, None))
+    app.add_node(rest_method,
+                 html=(rest_method_html, None),
+                 latex=(rest_method_latex, None)
+    )
+    app.add_node(rest_expand_all,
+                 html=(rest_expand_all_html, None),
+                 latex=(rest_expand_all_latex, None)
+    )
+    app.add_node(http_code,
+                 html=(http_code_html, None),
+                 latex=(http_code_latex, None)
+    )
 
     # This specifies all our directives that we're adding
     app.add_directive('rest_parameters', RestParametersDirective)

@@ -220,6 +220,12 @@ def http_code_html(self, node):
     raise nodes.SkipNode
 
 
+def http_code_latex(self, node):
+    tmpl = "%(code)s - %(title)s"
+    self.body.append(tmpl % node)
+    raise nodes.SkipNode
+
+
 class http_code(nodes.Part, nodes.Element):
     """Node for http_code stanza
 
