@@ -11,16 +11,16 @@
 # under the License.
 
 """
-test_os_api_ref
+test_otc_api_ref
 ----------------------------------
 
-Tests for `os_api_ref` module.
+Tests for `otc_api_ref` module.
 """
 
-from os_api_ref.tests import base
+from otc_api_ref.tests import base
 
 
-class TestOs_api_ref(base.TestCase):
+class TestOtc_api_ref(base.TestCase):
 
     def test_something(self):
         pass

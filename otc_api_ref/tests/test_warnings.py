@@ -11,16 +11,16 @@
 # under the License.
 
 """
-test_os_api_ref
+test_otc_api_ref
 ----------------------------------
 
-Tests for `os_api_ref` module.
+Tests for `otc_api_ref` module.
 """
 
 from bs4 import BeautifulSoup
 from sphinx_testing import with_app
 
-from os_api_ref.tests import base
+from otc_api_ref.tests import base
 
 
 class TestWarnings(base.TestCase):

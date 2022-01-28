@@ -24,13 +24,13 @@ from sphinx.util import logging
 from sphinx.util.osutil import copyfile
 import yaml
 
-from os_api_ref.http_codes import http_code
-from os_api_ref.http_codes import http_code_html
-from os_api_ref.http_codes import http_code_latex
-from os_api_ref.http_codes import HTTPResponseCodeDirective
+from otc_api_ref.http_codes import http_code
+from otc_api_ref.http_codes import http_code_html
+from otc_api_ref.http_codes import http_code_latex
+from otc_api_ref.http_codes import HTTPResponseCodeDirective
 
 __version__ = pbr.version.VersionInfo(
-    'os_api_ref').version_string()
+    'otc_api_ref').version_string()
 
 LOG = logging.getLogger(__name__)
 
@@ -373,7 +373,7 @@ class RestParametersDirective(Table):
         # TODO(sdague): it would be good to dynamically set column
         # widths (or basically make the colwidth thing go away
         # entirely)
-        self.options['widths'] = [30, 10, 10, 60]
+        self.options['widths'] = [30, 10, 10, 50]
         self.col_widths = self.get_column_widths(self.max_cols)
         if isinstance(self.col_widths, tuple):
             # In docutils 0.13.1, get_column_widths returns a (widths,
@@ -530,6 +530,7 @@ def rest_method_html(self, node):
 
     self.body.append(tmpl % node)
     raise nodes.SkipNode
+
 
 def rest_method_latex(self, node):
     tmpl = """
@@ -692,17 +693,20 @@ def setup(app):
     # TODO(sdague): if someone wants to support latex/pdf, or man page
     # generation using these stanzas, here is where you'd need to
     # specify content specific renderers.
-    app.add_node(rest_method,
-                 html=(rest_method_html, None),
-                 latex=(rest_method_latex, None)
+    app.add_node(
+        rest_method,
+        html=(rest_method_html, None),
+        latex=(rest_method_latex, None)
     )
-    app.add_node(rest_expand_all,
-                 html=(rest_expand_all_html, None),
-                 latex=(rest_expand_all_latex, None)
+    app.add_node(
+        rest_expand_all,
+        html=(rest_expand_all_html, None),
+        latex=(rest_expand_all_latex, None)
     )
-    app.add_node(http_code,
-                 html=(http_code_html, None),
-                 latex=(http_code_latex, None)
+    app.add_node(
+        http_code,
+        html=(http_code_html, None),
+        latex=(http_code_latex, None)
     )
 
     # This specifies all our directives that we're adding
