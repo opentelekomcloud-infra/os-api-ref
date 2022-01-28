@@ -11,16 +11,16 @@
 # under the License.
 
 """
-test_os_api_ref
+test_otc_api_ref
 ----------------------------------
 
-Tests for `os_api_ref` module.
+Tests for `otc_api_ref` module.
 """
 
 from bs4 import BeautifulSoup
 from sphinx_testing import with_app
 
-from os_api_ref.tests import base
+from otc_api_ref.tests import base
 
 
 class TestMicroversions(base.TestCase):
@@ -56,12 +56,12 @@ class TestMicroversions(base.TestCase):
     def test_parameters_table(self):
         """Test that min / max mv css class attributes are set in params"""
         table = """
-<table class="docutils align-default">
+<table class="colwidths-given longtable docutils align-default">
 <colgroup>
-<col style="width: 20%"/>
+<col style="width: 30%"/>
 <col style="width: 10%"/>
 <col style="width: 10%"/>
-<col style="width: 60%"/>
+<col style="width: 50%"/>
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>

@@ -25,7 +25,7 @@ html_theme_options = {
 }
 
 extensions = [
-    'os_api_ref',
+    'otc_api_ref',
 ]
 
 # The suffix of source filenames.

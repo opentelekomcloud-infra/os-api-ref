@@ -2,6 +2,7 @@
     merge-mode: squash-merge
     default-branch: main
     templates:
+      - publish-to-pypi
       - publish-otc-docs-pti
     check:
       jobs:
