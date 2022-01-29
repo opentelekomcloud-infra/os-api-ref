@@ -534,7 +534,7 @@ def rest_method_html(self, node):
 
 def rest_method_latex(self, node):
     tmpl = """
-\\section{%(desc)s}
+\\%(lvl)s{%(desc)s}
 
 \\begin{sphinxadmonition}{note}{Method:}
 \\sphinxAtStartPar
@@ -544,6 +544,11 @@ def rest_method_latex(self, node):
     node['url'] = node['url'].replace('{', '\\{')
     node['url'] = node['url'].replace('}', '\\}')
     node['url'] = node['url'].replace('_', '\\_')
+    # NOTE(gtema) making toctree proper in pdf if a bit tricky
+    if self.sectionlevel == 2:
+        node['lvl'] = 'section'
+    elif self.sectionlevel == 3:
+        node['lvl'] = 'subsection'
 
     self.body.append(tmpl % node)
     raise nodes.SkipNode

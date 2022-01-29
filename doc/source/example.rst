@@ -17,7 +17,6 @@ server password.
 List the Images
 ---------------
 
-
 .. rest_method:: GET /v3/images/{role_id}/role/{id}/role/{image_id}
 
 Short explanation about this GET method.
@@ -48,6 +47,40 @@ Response
 
 Create an Image
 ---------------
+
+.. rest_method:: POST /images
+
+Explantory text about this POST method.
+
+List of information:
+
+- Item 1
+- Item 2
+- Item 3
+
+
+Request
+~~~~~~~
+
+.. rest_parameters:: parameters.yaml
+
+   - name: name
+
+Response
+~~~~~~~~
+
+.. rest_parameters:: parameters.yaml
+
+   - server: server.obj
+   - name: name
+
+**Example List Servers:**
+
+.. literalinclude:: update-server-resp.json
+   :language: javascript
+
+Create an Image2
+----------------
 
 .. rest_method:: POST /images
 
