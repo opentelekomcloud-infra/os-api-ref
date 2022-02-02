@@ -11,28 +11,26 @@ tt.literal {
 
 /* bootstrap users blockquote for pull quotes, so they are much
 larger, we need them smaller */
-blockquote { font-size: 1em; }
-
-.docs-book-wrapper {
-  width: 90% !important
+blockquote {
+  font-size: 1em;
 }
 
-td>p {
-    margin: 0 0 0.5em;
+td > p {
+  margin: 0 0 0.5em;
 }
 
 .operation-grp {
-    padding-top: 0.5em;
-    padding-bottom: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 1em;
 }
 
 /* Ensure the method buttons and their links don't split lines when
 the page is narrower */
 .operation {
-    /* this moves the link icon into the gutter */
-    margin-left: -1.25em;
-    margin-right: 1.25em;
-    white-space: nowrap;
+  /* this moves the link icon into the gutter */
+  margin-left: -1.25em;
+  margin-right: 1.25em;
+  white-space: nowrap;
 }
 
 /* These make the links only show up on hover */
@@ -47,11 +45,11 @@ a.operation-anchor {
 /* All parameter tables should be full width */
 
 .api-detail table.docutils {
-    width: 100%;
+  width: 100%;
 }
 
 .versionmodified {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .label-POST {
@@ -68,11 +66,11 @@ a.operation-anchor {
 .label-GET[href]:hover,
 .label-GET[href]:focus,
 .label-HEAD[href]:hover,
-.label-HEAD[href]:focus  {
+.label-HEAD[href]:focus {
   background-color: var(--dt-colot-teal-30);
 }
 .label-PUT,
-.label-PATCH  {
+.label-PATCH {
   background-color: var(--dt-color-orange-60);
 }
 .label-PUT[href]:hover,
@@ -81,7 +79,7 @@ a.operation-anchor {
 .label-PATCH[href]:focus {
   background-color: var(--dt-color-orange-60);
 }
-.label-COPY  {
+.label-COPY {
   background-color: var(--dt-color-blue-60);
 }
 .label-COPY[href]:hover,
@@ -103,17 +101,19 @@ a.operation-anchor {
   content: "detail";
 }
 
-.btn-detail:hover, .btn-detail:focus,
-.btn-expand-all:hover, .btn-expand-all:focus {
-    color: #fff !important;
-    background-color: #3b6c91;
-    border-color: #269abc;
+.btn-detail:hover,
+.btn-detail:focus,
+.btn-expand-all:hover,
+.btn-expand-all:focus {
+  color: #fff !important;
+  background-color: #3b6c91;
+  border-color: #269abc;
 }
 
 .btn-detail,
 .btn-expand-all {
-    color: #fff !important;
-    background-color: #2A4E68;
+  color: #fff !important;
+  background-color: #2a4e68;
 }
 
 span.path_parameter {
@@ -132,7 +132,7 @@ p.url-subtitle {
 }
 
 .docs-body .section h1 {
-    display: block;
+  display: block;
 }
 /*
 div.docs-sidebar-toc > div > ul > li {
@@ -154,7 +154,7 @@ div.docs-top-contents {
   display: none;
 }
 
-div.endpoint-container{
+div.endpoint-container {
   padding-left: 15px;
 }
 

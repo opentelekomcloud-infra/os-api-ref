@@ -57,11 +57,8 @@ class TestBasicExample(base.TestCase):
     def test_expand_all(self):
         """Do we get an expand all button like we expect."""
         content = str(self.soup.find(id='expand-all'))
-        example_button = ('<button class="btn btn-info btn-sm btn-expand-all" '
-                          'data-toggle="collapse" id="expand-all">'
-                          'Show All</button>')
         self.assertEqual(
-            example_button,
+            'None',
             content)
 
     def test_rest_method(self):
@@ -71,18 +68,19 @@ class TestBasicExample(base.TestCase):
         # whole template instead of parts.
         content = str(self.soup.find_all(class_='operation-grp'))
         self.assertIn(
-            '<span class="glyphicon glyphicon-link"></span>',
+            '<span class="fa fa-link fa-fw"></span>',
             str(content))
         self.assertIn(
-            '<span class="label label-GET">GET</span>',
+            '<span class="badge label-GET">GET</span>',
             str(content))
         self.assertIn(
-            '<div class="row col-md-12">/servers</div>',
+            '/servers</div>',
             str(content))
         self.assertIn(
-            ('<button class="btn btn-info btn-sm btn-detail" '
-             'data-target="#list-servers-detail" data-toggle="collapse" '
-             'id="list-servers-detail-btn">detail</button>'),
+            ('<button aria-controls="list-servers-detail" '
+             'class="btn btn-info btn-sm btn-detail collapsed" '
+             'data-bs-target="#list-servers-detail" data-bs-toggle="collapse" '
+             'id="list-servers-detail-btn"></button>'),
             str(content))
 
     def test_parameters(self):

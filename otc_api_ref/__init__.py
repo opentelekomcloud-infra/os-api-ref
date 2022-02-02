@@ -499,7 +499,6 @@ def rest_method_html(self, node):
       onclick="window.location.hash = hash;"
       >
       <span class="fa fa-link fa-fw"></span>
-</svg>
     </a>
     <span class="badge label-%(method)s">%(method)s</span>
     </div>
@@ -564,22 +563,22 @@ def rest_expand_all_html(self, node):
     # - it occupies too much space
     # - during the docs transition period this need to be disabled
     # - we try to get rid of jquery for now
-#    tmpl = """
-#<div class="d-flex justify-content-end">
-#    <button id="expand-all"
-#       data-toggle="collapse"
-#       class="btn btn-info btn-sm btn-expand-all"
-#    >Show All</button>
-#</div>
-#"""
-
-#    node.setdefault('selector', "")
-#    node.setdefault('extra_js', "")
-#
-#    if node['major']:
-#        node['selector'], node['extra_js'] = create_mv_selector(node)
-#
-#    self.body.append(tmpl % node)
+    #     tmpl = """
+    #  <div class="d-flex justify-content-end">
+    #      <button id="expand-all"
+    #         data-toggle="collapse"
+    #         class="btn btn-info btn-sm btn-expand-all"
+    #      >Show All</button>
+    #  </div>
+    #  """
+    #
+    #     node.setdefault('selector', "")
+    #     node.setdefault('extra_js', "")
+    #
+    #     if node['major']:
+    #         node['selector'], node['extra_js'] = create_mv_selector(node)
+    #
+    #     self.body.append(tmpl % node)
     raise nodes.SkipNode
 
 
