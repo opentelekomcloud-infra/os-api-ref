@@ -28,10 +28,8 @@ extensions = [
 ]
 
 # openstackdocstheme options
-openstackdocs_repo_name = 'opentelekomcloud-infra/otc-api-ref'
-openstackdocs_auto_name = False
-openstackdocs_bug_project = 'otc-doc-tools'
-openstackdocs_bug_tag = 'otc-api-ref'
+otcdocs_repo_name = 'opentelekomcloud-infra/otc-api-ref'
+otcdocs_auto_name = False
 
 # autodoc generation is a bit aggressive and a nuisance when doing heavy
 # text edit cycles.
@@ -53,9 +51,6 @@ add_function_parentheses = True
 # If true, the current module name will be prepended to all description
 # unit titles (such as .. function::).
 add_module_names = True
-
-# The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'native'
 
 # -- Options for HTML output --------------------------------------------------
 
