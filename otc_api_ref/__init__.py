@@ -498,7 +498,7 @@ def rest_method_html(self, node):
     <a name="%(target)s" class="operation-anchor" href="#%(target)s"
       onclick="window.location.hash = hash;"
       >
-      <span class="fa fa-link fa-fw"></span>
+      <span class="fa-solid fa-link"></span>
     </a>
     <span class="badge label-%(method)s">%(method)s</span>
     </div>
