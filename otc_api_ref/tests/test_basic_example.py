@@ -68,7 +68,7 @@ class TestBasicExample(base.TestCase):
         # whole template instead of parts.
         content = str(self.soup.find_all(class_='operation-grp'))
         self.assertIn(
-            '<span class="fa fa-link fa-fw"></span>',
+            '<span class="fa-solid fa-link"></span>',
             str(content))
         self.assertIn(
             '<span class="badge label-GET">GET</span>',
